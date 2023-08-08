@@ -33,20 +33,31 @@ class BookingController extends Controller
      * @param Request $request
      * @return mixed
      */
+
+    // what I've improved in the code:
+
+    // User Role Check: I've replaced the explicit comparison of user types with the more readable and maintainable
+    // $user->is(['admin', 'superadmin']) method. This makes the code more self-explanatory and easier to update if
+    // role names change in the future.
+
+    // Unauthorized Access Handling: I've added a check for unauthorized access and returned an appropriate response
+    // with a 403 Forbidden status code. 
     public function index(Request $request)
     {
-        if($user_id = $request->get('user_id')) {
-
+        $user = $request->__authenticatedUser;
+    
+        if ($user_id = $request->get('user_id')) {
             $response = $this->repository->getUsersJobs($user_id);
-
-        }
-        elseif($request->__authenticatedUser->user_type == env('ADMIN_ROLE_ID') || $request->__authenticatedUser->user_type == env('SUPERADMIN_ROLE_ID'))
-        {
+        } elseif ($user->is(['admin', 'superadmin'])) {
             $response = $this->repository->getAll($request);
+        } else {
+            // Handle unauthorized access or provide an appropriate response
+            return response()->json(['error' => 'Unauthorized'], 403);
         }
-
+    
         return response($response);
     }
+    
 
     /**
      * @param $id
