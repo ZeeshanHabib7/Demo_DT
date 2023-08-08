@@ -1,45 +1,22 @@
-Do at least ONE of the following tasks: refactor is mandatory. Write tests is optional, will be good bonus to see it. 
-Please do not invest more than 2-4 hours on this.
-Upload your results to a Github repo, for easier sharing and reviewing.
+What's Good:
 
-Thank you and good luck!
+The code is split into separate sections, which is helpful for managing and reusing code.
+Some comments are added to explain what the code is doing.
 
+What Could Be Improved:
 
+Some parts of the code do the same thing multiple times, which makes the code longer and harder to manage.
+There are special words and numbers in the code that are hard to understand. Using simpler words or explaining them would help.
+In some places, the conditions (the if-checks) are too complicated. Making them simpler would make the code easier to read.
+The code talks to the database inside loops, which can make it slower. It's better to talk to the database fewer times.
 
-Code to refactor
-=================
-1) app/Http/Controllers/BookingController.php
-2) app/Repository/BookingRepository.php
+Suggestions for Making It Better:
 
-Code to write tests (optional)
-=====================
-3) App/Helpers/TeHelper.php method willExpireAt
-4) App/Repository/UserRepository.php, method createOrUpdate
+Use the same kind of words for variables and functions, so it's easier to understand.
+Make each part of the code do just one thing. This makes the code easier to change and read.
+Use short breaks to stop the code when a condition is met, so the code isn't too complicated.
+Try to talk to the database fewer times, especially inside loops.
+Instead of making things directly inside the code, it's better to use ready-made parts (like email-sending) that can be used in many places.
 
-
-----------------------------
-
-What I expect in your repo:
-
-X. A readme with:   Your thoughts about the code. What makes it amazing code. Or what makes it ok code. Or what makes it terrible code. How would you have done it. Thoughts on formatting, structure, logic.. The more details that you can provide about the code (what's terrible about it or/and what is good about it) the easier for us to assess your coding style, mentality etc
-
-And 
-
-Y.  Refactor it if you feel it needs refactoring. The more love you put into it. The easier for us to asses your thoughts, code principles etc
-
-
-IMPORTANT: Make two commits. First commit with original code. Second with your refactor so we can easily trace changes. 
-
-
-NB: you do not need to set up the code on local and make the web app run. It will not run as its not a complete web app. This is purely to assess you thoughts about code, formatting, logic etc
-
-
-===== So expected output is a GitHub link with either =====
-
-1. Readme described above (point X above) + refactored code 
-OR
-2. Readme described above (point X above) + refactored core + a unit test of the code that we have sent
-
-Thank you!
-
-
+Overall:
+The code is trying to do a good job, but it could be simpler and easier to read. By using clearer words, organizing the code better, and fixing some tricky parts, it would be easier to work with and understand.
